@@ -1,21 +1,17 @@
 import React from 'react'
+import Pokemon from './Pokemon'
 
-const Pokemon = (props) => {
-  return (
-    <div>
-      <img src="#"></img>
-      <a href>
-        {props.name}
-      </a>
-    </div>
-  )
-}
-
+//Parent
 const Pokemons = (props) => {
+  //console.log(props.url)
   return (
-    <ul className='pokemonsDiv'>
-      {props.pokemons.map((name, url, index) => <Pokemon key={index} name={name} url={url} />)}
-    </ul>
+    <>
+      <ul>
+        
+        {props.pokemons.map((name, index, ) => <Pokemon key={index} id={index} url={props.url} name={name} setView={props.setView}/>)}
+      
+      </ul>
+    </>
   )
 }
 
