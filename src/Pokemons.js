@@ -3,13 +3,12 @@ import Pokemon from './Pokemon'
 
 //Parent
 const Pokemons = (props) => {
-  //console.log(props.url)
   return (
     <>
       <ul>
-        
-        {props.pokemons.map((name, index, ) => <Pokemon key={index} id={index} url={props.url} name={name} setView={props.setView}/>)}
-      
+
+        {props.pokemons.map((pokemon, index,) => <Pokemon key={index} pokemon={pokemon} setPokemons={props.setPokemons} setPokemon={props.setPokemon} setView={props.setView} />)}
+
       </ul>
     </>
   )

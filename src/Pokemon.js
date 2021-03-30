@@ -1,26 +1,35 @@
 import React ,{useState}from 'react'
 import Pokemons from './Pokemons'
 
-// //Child
+//Child
 const Pokemon = (props) => {
-  //const [pokeurl, setPokeUrl] = useState([])
-  
   const linkHandler = () => {
     props.setView('pokeData')
-    //setPokeUrl(props.url[props.id])
-    //setPokemon(props.url[props.id])
-    //console.log(props.id)// index of allPokemons
-    console.log(props.url[props.id])// url @ index
-    //alert(props.id)// index of allPokemons
+    props.setPokemon(props.pokemon)
+
   }
-  
+  const removeHandler=()=>{
+    props.setPokemons(prevPokemons => {
+      let foundIndex = -1
+      for (let i = 0; i < prevPokemons.length; i++) {
+          if (prevPokemons[i].name === name)
+              foundIndex = i
+      } if (foundIndex >= 0) {
+          const newPokemons = [...prevPokemons.slice(0, foundIndex), ...prevPokemons.slice(foundIndex+1)]
+          return newPokemons
+      }
+  })
+
+  }
+  const {name, url, image} = props.pokemon 
+ 
   return (
     <li>
 
-      <img src="#"></img>
+      <img src={image ? image : '#'}/>
 
-      <a href='#' onClick={linkHandler} pokeurl={props.url[props.id]}>{props.name}</a>
-
+      <a href='#' onClick={linkHandler} pokeurl={url}>{name}</a>
+      <button onClick={removeHandler}>Remove</button>
     </li>
   )
 }
